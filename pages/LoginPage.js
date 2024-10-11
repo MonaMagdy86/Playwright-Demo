@@ -8,19 +8,7 @@ exports.LoginPage = class LoginPage{
         this.loginButton=page.locator("#login-button")
         this.userNameData=page.locator("#login_credentials")
         this.passwordData=page.locator(".login_password")
-        //add to cart page
-        this.selectItem=page.getByText("ADD TO CART");
-        this.cartNumber=page.locator(".fa-layers-counter")
-        this.cartIcon=page.locator('[data-icon="shopping-cart"]')
-        this.removeButton=page.getByText("REMOVE")
-        //checkout page
-        this.checkoutButton=page.getByText("CHECKOUT")
-        this.firstName=page.locator("#first-name")
-        this.lastName=page.locator("#last-name")
-        this.postalCode=page.locator("#postal-code")
-        this.continueButton=page.locator('[value="CONTINUE"]');
-        this.finishButton=page.getByText("FINISH")
-
+    
     }
       async goToWebsite(){
 
@@ -45,24 +33,6 @@ exports.LoginPage = class LoginPage{
         await this.loginButton.click();
       }
 
-      async addToCart(){
-        await this.selectItem.nth(0).click()
-        const num=  await this.cartNumber.innerText();
-        console.log(num)
-        await this.cartIcon.click()
-      }
-    
-    
-    async checkOut(fName,lName,pCode){
-      await this.cartIcon.click()
-      await this.checkoutButton.click()
-      await this.firstName.fill(fName)
-      await this.lastName.fill(lName)
-      await this.postalCode.fill(pCode)
-      await this.continueButton.click()
-    }
-    async finish(){
-      await this.finishButton.click()
-
-    }
+      
+  
 }
